@@ -5,6 +5,8 @@ package.loaded['dev'] = nil
 package.loaded['todo-cards'] = nil
 package.loaded['todo-cards.actions'] = nil
 package.loaded['todo-cards.config'] = nil
+package.loaded['todo-cards.buffer'] = nil
+package.loaded['todo-cards.mappings'] = nil
 print('Reloaded!')
 
 -- [ , + r ] keymap to reload the lua file
@@ -16,12 +18,12 @@ vim.api.nvim_set_keymap('n', '<Localleader>r', '<cmd>luafile dev/init.lua<cr>', 
 
 -- keybind to test the plugin
 TodoCards = require('todo-cards')
-vim.api.nvim_set_keymap('n', '<Localleader>w', '<cmd>lua TodoCards.actions.createFloatingWindow()<cr>', {})
+vim.api.nvim_set_keymap('n', '<Localleader>w', '<cmd>lua TodoCards.actions.toggleTodoWindow()<cr>', {})
 
 -- Config
 TodoCards.setup({
   defaults = {
     autoclose = 0,
-    border = 1
+    border = 1,
   }
 })

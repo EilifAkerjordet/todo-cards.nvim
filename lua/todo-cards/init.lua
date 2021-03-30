@@ -1,4 +1,5 @@
 local actions = require('todo-cards.actions')
+local mappings = require('todo-cards.mappings')
 local todoCards = {}
 
 function todoCards.setup(opts)
@@ -7,4 +8,5 @@ function todoCards.setup(opts)
 end
 
 todoCards.actions = actions
+todoCards.mappings = mappings
 return todoCards

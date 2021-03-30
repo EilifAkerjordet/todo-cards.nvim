@@ -36,32 +36,8 @@ function config.set_defaults (defaults)
 	set('vertical_border', '│')
 	set('horizontal_border', '─')
 
-  -- set("borderchars", { '─', '│', '─', '│', '╭', '╮', '╯', '╰'})
+	set("mappings", {})
 end
-
--- if ! exists('g:floatLf_topleft_border')
---     let g:floatLf_topleft_border = "?"
--- endif
---
--- if ! exists('g:floatLf_topright_border')
---     let g:floatLf_topright_border = "?"
--- endif
---
--- if ! exists('g:floatLf_botleft_border')
---     let g:floatLf_botleft_border = "?"
--- endif
---
--- if ! exists('g:floatLf_botright_border')
---     let g:floatLf_botright_border = "?"
--- endif
---
--- if ! exists('g:floatLf_vertical_border')
---     let g:floatLf_vertical_border = "?"
--- endif
---
--- if ! exists('g:floatLf_horizontal_border')
---     let g:floatLf_horizontal_border = "?"
--- endif
 
 config.set_defaults()
 
