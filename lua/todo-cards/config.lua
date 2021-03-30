@@ -29,10 +29,15 @@ function config.set_defaults (defaults)
 	-- Default values
 	set('autoclose', 0)
 	set('border', 1)
-	set('topleft_border', '')
-end
+	set('topleft_border', '╭')
+	set('topright_border', '╮')
+	set('botleft_border', '╰')
+	set('botright_border', '╯')
+	set('vertical_border', '│')
+	set('horizontal_border', '─')
 
--- set("borderchars", { '?', '?', '?', '?', '?', '?', '?', '?'})
+  -- set("borderchars", { '─', '│', '─', '│', '╭', '╮', '╯', '╰'})
+end
 
 -- if ! exists('g:floatLf_topleft_border')
 --     let g:floatLf_topleft_border = "?"
