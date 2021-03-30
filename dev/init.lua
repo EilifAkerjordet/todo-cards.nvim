@@ -21,6 +21,7 @@ vim.api.nvim_set_keymap('n', '<Localleader>w', '<cmd>lua TodoCards.actions.creat
 -- Config
 TodoCards.setup({
   defaults = {
-    autoclose = 0
+    autoclose = 0,
+    border = 1
   }
 })

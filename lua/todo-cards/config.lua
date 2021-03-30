@@ -26,11 +26,14 @@ function config.set_defaults (defaults)
     config.values[name] = get(name, default_val)
   end
 
-	-- Defaults
+	-- Default values
 	set('autoclose', 0)
 	set('border', 1)
 	set('topleft_border', '')
 end
+
+-- set("borderchars", { '?', '?', '?', '?', '?', '?', '?', '?'})
+
 -- if ! exists('g:floatLf_topleft_border')
 --     let g:floatLf_topleft_border = "?"
 -- endif
