@@ -5,8 +5,8 @@ package.loaded['dev'] = nil
 package.loaded['todo-cards'] = nil
 package.loaded['todo-cards.actions'] = nil
 package.loaded['todo-cards.config'] = nil
+package.loaded['todo-cards.utils'] = nil
 package.loaded['todo-cards.buffer'] = nil
-package.loaded['todo-cards.mappings'] = nil
 print('Reloaded!')
 
 -- [ , + r ] keymap to reload the lua file
@@ -25,5 +25,15 @@ TodoCards.setup({
   defaults = {
     autoclose = 0,
     border = 1,
-  }
+    mappings = {
+      buffer = {
+        n = {
+          ['2'] = 'usersetting'
+        },
+        i = {
+          ['anotherone'] = 'heiheihei'
+        }
+      }
+    }
+  },
 })

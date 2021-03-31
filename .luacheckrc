@@ -14,6 +14,7 @@ ignore = {
 
 globals = {
   "_ConfigurationValues",
+  "_Keymaps",
 }
 
 -- Global objects defined by the C code

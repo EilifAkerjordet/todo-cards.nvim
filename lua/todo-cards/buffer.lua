@@ -1,9 +1,9 @@
-local defaults = require('todo-cards.config').values
-
 local api = vim.api
 local M = {}
 
-function M.createFloatingWindow()
+function M.createFloatingWindow(defaults)
+	local config = defaults.values
+
 	M.win_prev = api.nvim_tabpage_get_win(0)
 	local column = api.nvim_get_option("columns")
 	local line = api.nvim_get_option("lines")
@@ -23,13 +23,13 @@ function M.createFloatingWindow()
 	-- Create buffer
   M.buf_handle = api.nvim_create_buf(false, true)
 
-	if defaults.border == 1 then
-		local top_left = defaults.topleft_border
-		local top_right = defaults.topright_border
-		local horizontal = defaults.horizontal_border
-		local vertical = defaults.vertical_border
-		local bot_left = defaults.botleft_border
-		local bot_right = defaults.botright_border
+	if config.border == 1 then
+		local top_left = config.topleft_border
+		local top_right = config.topright_border
+		local horizontal = config.horizontal_border
+		local vertical = config.vertical_border
+		local bot_left = config.botleft_border
+		local bot_right = config.botright_border
 
 		local top_border = top_left..string.rep(horizontal, width - 0.5)..top_right
 		local mid_border = vertical..string.rep(" ", width - 0.5)..vertical

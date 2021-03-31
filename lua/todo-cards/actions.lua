@@ -8,9 +8,9 @@ function M.closeTodoWindow()
 	end
 end
 
-function M.toggleTodoWindow()
+function M.toggleTodoWindow(config)
   if buffer.buf_handle == nil or not api.nvim_buf_is_valid(buffer.buf_handle) then
-    buffer.createFloatingWindow()
+    buffer.createFloatingWindow(config)
     api.nvim_command("startinsert")
   else
 		M.closeTodoWindow()
