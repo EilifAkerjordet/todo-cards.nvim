@@ -42,11 +42,19 @@ function config.set_defaults (defaults)
 	set_keymap('buffer', 'n', 'q', actions.closeTodoWindow)
 
 	-- Apply the user defined keymaps that do not exist by default
-	-- @TODO
-	-- - Check if there are mappings at all in the user object
-	-- - If there is, loop over items in buffer and global
-	-- - For each found item (mapping), check if that mapping already exists
-	-- - If it does, ignore it. If it dosen't, add it.
+	if utils.lookup(defaults, "mappings") then
+		for env, _ in pairs(defaults.mappings) do
+			for mode, _ in pairs(defaults.mappings[env]) do
+				for binding, action in pairs(defaults.mappings[env][mode]) do
+					if not utils.lookup(config.values.mappings, env) then config.values.mappings[env] = {} end
+					if not utils.lookup(config.values.mappings, env, mode) then config.values.mappings[env][mode] = {} end
+					if not utils.lookup(config.values.mappings, env, mode, binding) then
+						config.values.mappings[env][mode][binding] = action
+					end
+				end
+			end
+		end
+	end
 end
 
 config.set_defaults()

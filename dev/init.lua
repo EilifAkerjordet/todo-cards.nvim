@@ -28,10 +28,18 @@ TodoCards.setup({
     mappings = {
       buffer = {
         n = {
-          ['2'] = 'usersetting'
+          ['q'] = 'usersetting'
         },
         i = {
           ['anotherone'] = 'heiheihei'
+        }
+      },
+      global = {
+        n = {
+          ['firstGlobal'] = 'firstglobal'
+        },
+        i = {
+          ['secondGlobal'] = 'sencondGlobal'
         }
       }
     }
