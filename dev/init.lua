@@ -17,31 +17,34 @@ print('Reloaded!')
 vim.api.nvim_set_keymap('n', '<Localleader>r', '<cmd>luafile dev/init.lua<cr>', {})
 
 -- keybind to test the plugin
-TodoCards = require('todo-cards')
+TodoCardsConfig = require('todo-cards.config')
 vim.api.nvim_set_keymap('n', '<Localleader>w', '<cmd>lua TodoCards.actions.toggleTodoWindow()<cr>', {})
 
 -- Config
-TodoCards.setup({
-  defaults = {
-    autoclose = 0,
-    border = 1,
-    mappings = {
-      buffer = {
-        n = {
-          ['q'] = 'usersetting'
+require('todo-cards').setup(function(actions)
+  return {
+    defaults = {
+      autoclose = 0,
+      border = 1,
+
+      mappings = {
+        buffer = {
+          n = {
+            ['q'] = actions.closeTodoWindow
+          },
+          i = {
+            ['anotherone'] = 'heiheihei'
+          }
         },
-        i = {
-          ['anotherone'] = 'heiheihei'
-        }
-      },
-      global = {
-        n = {
-          ['firstGlobal'] = 'firstglobal'
-        },
-        i = {
-          ['secondGlobal'] = 'sencondGlobal'
+        global = {
+          n = {
+            ['firstGlobal'] = 'firstglobal'
+          },
+          i = {
+            ['secondGlobal'] = 'sencondGlobal'
+          }
         }
       }
-    }
-  },
-})
+    },
+  }
+end)

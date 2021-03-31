@@ -7,8 +7,9 @@ _ConfigurationValues = _ConfigurationValues or {}
 local config = {}
 config.values = _ConfigurationValues
 
-function config.set_defaults (defaults)
-	defaults = defaults or {}
+function config.set_defaults (callback)
+	local defaults = {}
+	if callback then defaults = callback(actions) end
 
   local function set_config_item(name, default_val)
     config.values[name] = utils.first_non_nil(defaults[name], config.values[name], default_val)
@@ -39,7 +40,7 @@ function config.set_defaults (defaults)
 	set_config_item('horizontal_border', '─')
 	-- Default keymap
 	set_keymap('global', 'n', '<Localleader>w', 'openwindow')
-	set_keymap('buffer', 'n', 'q', actions.closeTodoWindow)
+	set_keymap('buffer', 'n', 'q', 'default')
 
 	-- Apply the user defined keymaps that do not exist by default
 	if utils.lookup(defaults, "mappings") then
@@ -58,5 +59,6 @@ function config.set_defaults (defaults)
 end
 
 config.set_defaults()
+print(vim.inspect(config))
 
 return config
