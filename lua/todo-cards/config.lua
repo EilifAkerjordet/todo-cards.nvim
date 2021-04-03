@@ -7,9 +7,9 @@ _ConfigurationValues = _ConfigurationValues or {}
 local config = {}
 config.values = _ConfigurationValues
 
-function config.set_defaults (callback)
+function config.set_defaults (get_options)
 	local defaults = {}
-	if callback then defaults = callback(actions) end
+	if get_options then defaults = get_options(actions).defaults end
 
   local function set_config_item(name, default_val)
     config.values[name] = utils.first_non_nil(defaults[name], config.values[name], default_val)
@@ -17,7 +17,7 @@ function config.set_defaults (callback)
 
 	local function set_keymap(env, mode, mapping, default_val)
 	  local default_keymap = utils.lookup(defaults, "mappings", env, mode, mapping)
-		-- Create config.mappings sub fields of they don't exist
+		-- Create config.mappings sub fields if they don't exist
 		if not config.values["mappings"] then config.values["mappings"] = {} end
 		if not config.values["mappings"][env] then config.values["mappings"][env] = {} end
 		if not config.values["mappings"][env][mode] then config.values["mappings"][env][mode] = {} end
@@ -39,10 +39,10 @@ function config.set_defaults (callback)
 	set_config_item('vertical_border', '│')
 	set_config_item('horizontal_border', '─')
 	-- Default keymap
-	set_keymap('global', 'n', '<Localleader>w', 'openwindow')
+	set_keymap('global', 'n', '<Localleader>w', actions.test)
 	set_keymap('buffer', 'n', 'q', 'default')
 
-	-- Apply the user defined keymaps that do not exist by default
+	-- Set the user defined keymaps that do not exist by default
 	if utils.lookup(defaults, "mappings") then
 		for env, _ in pairs(defaults.mappings) do
 			for mode, _ in pairs(defaults.mappings[env]) do
@@ -57,8 +57,5 @@ function config.set_defaults (callback)
 		end
 	end
 end
-
-config.set_defaults()
-print(vim.inspect(config))
 
 return config

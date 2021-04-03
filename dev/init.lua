@@ -17,8 +17,7 @@ print('Reloaded!')
 vim.api.nvim_set_keymap('n', '<Localleader>r', '<cmd>luafile dev/init.lua<cr>', {})
 
 -- keybind to test the plugin
-TodoCardsConfig = require('todo-cards.config')
-vim.api.nvim_set_keymap('n', '<Localleader>w', '<cmd>lua TodoCards.actions.toggleTodoWindow()<cr>', {})
+-- vim.api.nvim_set_keymap('n', '<Localleader>w', '<cmd>lua TodoCards.actions.toggleTodoWindow()<cr>', {})
 
 -- Config
 require('todo-cards').setup(function(actions)

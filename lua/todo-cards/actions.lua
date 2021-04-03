@@ -2,6 +2,10 @@ local buffer = require('todo-cards.buffer')
 local api = vim.api
 local M = {}
 
+function M.test()
+	print('heiheiheiheie')
+end
+
 function M.closeTodoWindow()
 	if (api.nvim_buf_is_valid(M.buf_handle)) then
 	  api.nvim_buf_delete(M.buf_handle, { force = true })
