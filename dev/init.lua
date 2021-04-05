@@ -7,6 +7,7 @@ package.loaded['todo-cards.actions'] = nil
 package.loaded['todo-cards.config'] = nil
 package.loaded['todo-cards.utils'] = nil
 package.loaded['todo-cards.buffer'] = nil
+package.loaded['todo-cards.mappings'] = nil
 print('Reloaded!')
 
 -- [ , + r ] keymap to reload the lua file
@@ -29,19 +30,13 @@ require('todo-cards').setup(function(actions)
       mappings = {
         buffer = {
           n = {
-            ['q'] = actions.closeTodoWindow
+            ['q'] = actions.close_todo_window
           },
-          i = {
-            ['anotherone'] = 'heiheihei'
-          }
         },
         global = {
           n = {
-            ['firstGlobal'] = 'firstglobal'
+            ['<Localleader>w'] = actions.open_todo_window
           },
-          i = {
-            ['secondGlobal'] = 'sencondGlobal'
-          }
         }
       }
     },

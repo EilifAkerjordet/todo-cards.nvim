@@ -1,14 +1,14 @@
 local api = vim.api
 local M = {}
 
-function M.createFloatingWindow(defaults)
-	local config = defaults.values
+function M.createFloatingWindow()
+	local config = _ConfigurationValues
 
 	M.win_prev = api.nvim_tabpage_get_win(0)
 	local column = api.nvim_get_option("columns")
 	local line = api.nvim_get_option("lines")
 
-	-- TODO make this user adjustable
+	-- TODO: make this user adjustable
 	local width = column * 0.89
 	local height = line * 0.89
 	local opts = {

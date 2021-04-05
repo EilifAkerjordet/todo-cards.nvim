@@ -6,18 +6,16 @@ function M.test()
 	print('heiheiheiheie')
 end
 
-function M.closeTodoWindow()
+function M.close_todo_window()
 	if (api.nvim_buf_is_valid(M.buf_handle)) then
 	  api.nvim_buf_delete(M.buf_handle, { force = true })
 	end
 end
 
-function M.toggleTodoWindow(config)
+function M.open_todo_window()
   if buffer.buf_handle == nil or not api.nvim_buf_is_valid(buffer.buf_handle) then
-    buffer.createFloatingWindow(config)
-    api.nvim_command("startinsert")
-  else
-		M.closeTodoWindow()
+    buffer.createFloatingWindow()
+    -- api.nvim_command("startinsert")
   end
 end
 
