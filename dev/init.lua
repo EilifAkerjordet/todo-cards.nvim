@@ -6,7 +6,7 @@ package.loaded['todo-cards'] = nil
 package.loaded['todo-cards.actions'] = nil
 package.loaded['todo-cards.config'] = nil
 package.loaded['todo-cards.utils'] = nil
-package.loaded['todo-cards.buffer'] = nil
+package.loaded['todo-cards.layout'] = nil
 package.loaded['todo-cards.mappings'] = nil
 print('Reloaded!')
 
@@ -26,6 +26,12 @@ require('todo-cards').setup(function(actions)
     defaults = {
       autoclose = 0,
       border = 1,
+			topleft_border = '╭',
+			topright_border = '╮',
+			botleft_border = '╰',
+			botright_border = '╯',
+			vertical_border = '│',
+			horizontal_border = '─',
 
       mappings = {
         buffer = {

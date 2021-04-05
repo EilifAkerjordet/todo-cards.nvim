@@ -90,7 +90,8 @@ function mappings.execute_keymap(prompt, keymap_identifier)
       keymap_identifier
     )
   )
-	if prompt == 'global' then
+	-- If global mapping
+	if prompt == 0 then
 		key_func()
 	else
 	  key_func(prompt)

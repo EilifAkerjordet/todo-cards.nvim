@@ -39,8 +39,8 @@ function config.set_defaults (get_options)
 	set_config_item('vertical_border', '│')
 	set_config_item('horizontal_border', '─')
 	-- Default keymap
-	set_keymap('global', 'n', '<Localleader>w', actions.test)
-	set_keymap('buffer', 'n', 'q', 'default')
+	set_keymap('global', 'n', '<Localleader>w', actions.open_todo_window)
+	set_keymap('buffer', 'n', 'q', actions.close_todo_window)
 
 	-- Set the user defined keymaps that do not exist by default
 	if utils.lookup(defaults, "mappings") then
