@@ -1,6 +1,6 @@
-local M = {}
+local utils = {}
 
-function M.first_non_nil(...)
+function utils.first_non_nil(...)
   local n = select('#', ...)
   for i = 1, n do
     local value = select(i, ...)
@@ -11,7 +11,7 @@ function M.first_non_nil(...)
   end
 end
 
-function M.lookup(t, ...)
+function utils.lookup(t, ...)
     for _, k in pairs{...} do
         t = t[k]
         if not t then
@@ -21,4 +21,4 @@ function M.lookup(t, ...)
     return t
 end
 
-return M
+return utils

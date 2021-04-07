@@ -30,8 +30,10 @@ function config.set_defaults (get_options)
 	end
 
 	-- Default values
-	set_config_item('autoclose', 0)
 	set_config_item('border', 1)
+	set_config_item('window_dimensions', { height = 0.89, width = 0.89 }) -- percentage
+	set_config_item('view_split_ratio', 0.75) -- percentage
+	set_config_item('borderchars', { '─', '│', '─', '│', '╭', '╮', '╯', '╰'})
 	set_config_item('topleft_border', '╭')
 	set_config_item('topright_border', '╮')
 	set_config_item('botleft_border', '╰')

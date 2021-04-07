@@ -24,7 +24,6 @@ vim.api.nvim_set_keymap('n', '<Localleader>r', '<cmd>luafile dev/init.lua<cr>', 
 require('todo-cards').setup(function(actions)
   return {
     defaults = {
-      autoclose = 0,
       border = 1,
 			topleft_border = '╭',
 			topright_border = '╮',
@@ -36,7 +35,7 @@ require('todo-cards').setup(function(actions)
       mappings = {
         buffer = {
           n = {
-            ['q'] = actions.close_todo_window
+            ['q'] = actions.close_todo_window,
           },
         },
         global = {

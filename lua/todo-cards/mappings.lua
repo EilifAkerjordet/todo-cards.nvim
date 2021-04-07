@@ -29,7 +29,7 @@ local function map(prompt, mode, key_bind, key_func, opts)
 
 	local set_keymap
 	if not prompt or prompt == 'global' then
-		prompt = 0
+		prompt = -1
 		set_keymap = api.nvim_set_keymap
 	else
 		set_keymap = function(...) api.nvim_buf_set_keymap(prompt, ...) end
@@ -91,7 +91,7 @@ function mappings.execute_keymap(prompt, keymap_identifier)
     )
   )
 	-- If global mapping
-	if prompt == 0 then
+	if prompt == -1 then
 		key_func()
 	else
 	  key_func(prompt)
@@ -99,7 +99,7 @@ function mappings.execute_keymap(prompt, keymap_identifier)
 end
 
 function mappings.apply_keymap(prompt, key_maps)
-	if prompt == 'global' then prompt = 0 end
+	if prompt == 'global' then prompt = -1 end
 	for mode, _ in pairs(key_maps) do
 		for binding, action in pairs(key_maps[mode]) do
 		  map(prompt, mode, binding, action)
